@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Smriti Sharma - Business Professional Portfolio</title>
+    
+    <link rel="icon" type="image/png" href="assets/Logo.jpg"> 
+    <meta name="description" content="Smriti Sharma's professional portfolio. An Aspiring Business Professional skilled in Retail Operations, MS Office & Digital Marketing." />
+    <meta property="og:title" content="Smriti Sharma - Business Professional Portfolio" />
+    <meta property="og:description" content="BBA Student showcasing skills in Retail Operations, Digital Marketing, and Finance." />
+    <meta property="og:image" content="assets/Logo.jpg" /> 
+    <meta property="og:url" content="https://your-username.github.io" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        /* --- Colors --- 
+         * Primary Dark: #1A237E (Deep Navy/Indigo)
+         * Accent: #FFB300 (Professional Gold/Amber)
+         * Secondary Light: #E8EAF6 (Lightest Blue)
+         * Text/Body: #212121
+        */
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #212121;
+            background: linear-gradient(135deg, #E8EAF6, #FFFFFF);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Primary Button (Gold/Amber) --- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #FFB300; 
+            color: #1A237E;
+            border: 2px solid #FFB300;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4);
+        }
+        .btn-primary:hover {
+            background: #1A237E;
+            color: #FFB300;
+            border-color: #1A237E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 35, 126, 0.4);
+        }
+        
+        /* Container Panels */
+        .panel {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 35px 45px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+        .panel.visible { opacity: 1; transform: translateY(0); }
+
+        h1, h2, h3 {  
+            font-family: 'Playfair Display', serif;
+            color: #1A237E;
+        }
+        h2 {
+            font-size: 1.8rem; 
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        h2 i { margin-right: 10px; color: #1A237E; }
+        h2::after {
+            content: ""; display: block; width: 80px; height: 3px;
+            background: #FFB300;
+            position: absolute; bottom: 0; left: 0;
+        }
+        p, ul {  
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;  
+            font-size: 1rem;
+            color: #424242;
+        }
+        ul { padding-left: 25px; }
+
+        /* --- Navbar --- */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            display: flex; flex-wrap: nowrap; justify-content: center;
+            gap: 15px 25px;
+            background: #1A237E;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            padding: 15px 10px; 
+        }
+        nav a {
+            color: #E8EAF6;
+            text-decoration: none; font-weight: 400; font-size: 0.95rem;
+            padding: 8px 12px; border-radius: 6px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            background: #3949AB;
+            color: #FFB300;
+        }
+
+        /* --- Header / Hero Section --- */
+        .hero {
+            max-width: 1000px; margin: 30px auto 0; padding: 25px;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 160px; height: 160px; border-radius: 50%;
+            object-fit: cover; border: 6px solid #FFB300;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+        }
+        .hero-text {
+            background: rgba(26, 35, 126, 0.85); 
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .hero-text h1 { 
+            font-size: 3.2rem; font-weight: 700; 
+            color: #FFFFFF;
+        }
+        .hero-text p.tagline { 
+            margin-top: 5px; 
+            color: #E8EAF6;
+            font-size: 1.2rem; 
+            font-weight: 300;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        /* Style for the secondary links (social icons) */
+        .quick-links a {
+            display: inline-flex; justify-content: center; align-items: center;
+            width: 50px; height: 50px;
+            color: #FFB300;
+            background: #1A237E;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        .quick-links a:hover {
+            background: #FFB300;
+            color: #1A237E;
+            transform: scale(1.1);
+        }
+
+        /* --- Experience Section Styling --- */
+        .experience-card {
+            border-left: 5px solid #FFB300;
+            padding: 15px 0 15px 25px;
+            margin-top: 25px;
+        }
+        .experience-card h3 { 
+            font-size: 1.4rem; 
+            margin-bottom: 5px; 
+            color: #3949AB;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        .experience-card p.metadata {
+            font-size: 0.9rem;
+            color: #757575;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .experience-card ul {
+            font-size: 0.95rem;
+            color: #424242;
+        }
+        .experience-card li {
+            margin-bottom: 5px;
+        }
+
+        /* --- Skills Grid --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 25px 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .skill-item {
+            padding: 15px 10px;
+            border-radius: 8px;
+            background: #E8EAF6;
+            transition: background 0.3s ease, transform 0.2s;
+            border: 1px solid #C5CAE9;
+        }
+        .skill-item:hover {
+            background: #FFB300;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 179, 0, 0.3);
+        }
+        .skill-item i {
+            font-size: 2.2rem;
+            color: #1A237E;
+            margin-bottom: 8px;
+        }
+        .skill-item span {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A237E;
+        }
+        
+        /* --- Certifications & Honors Styling --- */
+        .cert-grid {
+            display: grid; gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .cert-card {
+            display: flex; align-items: flex-start; gap: 15px;
+            background: #FFFFFF;
+            border-left: 5px solid #3949AB;
+            border-radius: 8px; padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .cert-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .cert-card i { font-size: 1.5rem; color: #FFB300; }
+        .cert-card h3 { margin: 0; font-size: 1.1rem; font-weight: 600; color: #1A237E; }
+        
+        .awards-list {
+            list-style: none; padding: 0; margin-top: 15px;
+        }
+        .awards-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            border-bottom: 1px dashed #BDBDBD;
+            padding-bottom: 8px;
+        }
+        .awards-list li::before {
+            content: "\f091"; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute; left: 0; top: 2px;
+            color: #FFB300;
+            font-size: 1.3rem;
+        }
+
+        /* --- Contact Section --- */
+        .panel-contact {
+            background: #1A237E;
+            color: #f0f0f0; text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border: none;
+        }
+        .panel-contact h2 { color: #fff; }
+        .panel-contact h2::after { background: #FFB300; margin-left: auto; margin-right: auto; }
+        .panel-contact p { color: #E8EAF6; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .contact-links { margin-top: 25px; display: flex; justify-content: center; gap: 30px; }
+        .contact-links a { color: #FFB300; font-size: 2.2rem; transition: transform 0.3s ease, color 0.3s ease; }
+        .contact-links a:hover { transform: scale(1.15); color: #FFFFFF; }
+        
+        /* --- Footer --- */
+        footer { text-align: center; padding: 25px; margin: 0; background: #0F1767; color: #9FA8DA; font-size: 0.9rem; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .panel { padding: 20px; margin: 20px auto; }
+            nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+            nav a { font-size: 0.75rem; padding: 8px 4px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text p.tagline { font-size: 1rem; padding: 0 10px; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .experience-card { padding: 10px 0 10px 15px; }
+            .button-group { flex-direction: column; gap: 10px; width: 100%; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#summary"><i class="fa-solid fa-user"></i> Summary</a>
+        <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="#skills"><i class="fa-solid fa-gears"></i> Skills</a>
+        <a href="#certifications"><i class="fa-solid fa-certificate"></i> Certs</a>
+        <a href="#honors"><i class="fa-solid fa-trophy"></i> Honors</a>
+        <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+
+    <div class="hero">
+        <img class="profile-pic" src="assets/Profile.jpg" alt="Profile Photo of Smriti Sharma"/>
+        <div class="hero-text">
+            <h1>Smriti Sharma</h1>
+            <p class="tagline">BBA Student | Aspiring Business Professional skilled in Retail, MS Office, and Digital Marketing</p>
+        </div>
+        
+        <div class="button-group">
+            <a href="#experience" class="btn-primary">Explore My Journey <i class="fa-solid fa-arrow-down-long"></i></a>
+            <a href="assets/Smriti_Resume.pdf" target="_blank" class="btn-primary">Download Resume <i class="fa-solid fa-file-pdf"></i></a>
+        </div>
+        
+        <div class="quick-links">
+            <a href="mailto:sharmasmriti283@gmail.com" aria-label="Email Me">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/smriti-sharma-bb709030b" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+
+    <section id="summary" class="panel">
+        <h2><i class="fa-solid fa-magnifying-glass"></i> Professional Summary</h2>
+        <p>
+            I am currently pursuing my BBA at Allenhouse Business School and maintain a high curiosity about how businesses operate, from managing workflows to understanding customer drivers.
+        </p>
+        <p>
+            My recent internship with Reliance Retail provided valuable hands-on experience in store operations, inventory management, and customer engagement. Being recognized for performance during the *Full Paisa Vasool campaign* underscored the impact of teamwork and smart, results-driven decisions.
+        </p>
+        <p>
+            I've built foundational skills in MS Office, Tally Prime, Tableau, and Digital Marketing, complemented by certifications in Finance and Consumer Behaviour. I'm actively seeking opportunities to start my corporate career in business operations, marketing, retail, or finance.
+        </p>
+    </section>
+    
+    <section id="experience" class="panel">
+        <h2><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+        <div class="experience-card">
+            <h3>Retail Specialist</h3>
+            <p class="metadata">Reliance Retail | August 2024 - August 2024 (1 month) | Kanpur, Uttar Pradesh, India</p>
+            <ul>
+                <li>Assisted with daily store operations and managed inventory processes to ensure smooth workflows.</li>
+                <li>Provided detailed product information and support to customers, directly enhancing their shopping experience.</li>
+                <li>Collaborated with the sales team to promote key products, contributing effectively to increased sales performance.</li>
+                <li>Received recognition for outstanding dedication and service during a key promotional campaign.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education" class="panel">
+        <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        <p>
+            Bachelor of Business Administration (BBA)<br/>
+            Allenhouse Group of Institutions
+            <br/>
+            <em>Business Administration and Management, General</em> (August 2023 - July 2026)
+        </p>
+    </section>
+
+    <section id="skills" class="panel">
+        <h2><i class="fa-solid fa-rocket"></i> Core Skills & Proficiencies</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><i class="fa-solid fa-hands-holding-circle"></i><span>CSR</span></div>
+            <div class="skill-item"><i class="fa-solid fa-lightbulb"></i><span>Entrepreneurship</span></div>
+            <div class="skill-item"><i class="fa-solid fa-chart-line"></i><span>Presentation Skills</span></div>
+            <div class="skill-item"><i class="fa-solid fa-bullhorn"></i><span>Digital Marketing</span></div>
+            
+            <div class="skill-item"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
+            <div class="skill-item"><i class="fa-solid fa-chart-bar"></i><span>Power BI </span></div>
+            <div class="skill-item"><i class="fa-solid fa-money-bill-transfer"></i><span>Tally Prime</span></div>
+            <div class="skill-item"><i class="fa-solid fa-ranking-star"></i><span>Tableau (Basic)</span></div>
+            <div class="skill-item"><i class="fa-solid fa-file-powerpoint"></i><span>MS Office </span></div>
+            <div class="skill-item"><i class="fa-solid fa-language"></i><span>English & Hindi</span></div>
+        </div>
+    </section>
+
+    <section id="certifications" class="panel">
+        <h2><i class="fa-solid fa-certificate"></i> Certifications & Training</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <i class="fa-solid fa-vault"></i>
+                <div><h3>Certificate Program in Banking, Finance, and Insurance</h3></div>
+            </div>
+            <div class="cert-card">
+                <i class="fa-solid fa-user-check"></i>
+                <div><h3>Consumer Behaviour</h3></div>
+            </div>
+            <div class="cert-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <div><h3>MS Office Suite (Hands-on Training)</h3></div>
+            </div>
+            <div class="cert-card">
+                <i class="fa-solid fa-sack-dollar"></i>
+                <div><h3>Basics of Tally Prime Software (Practical Training)</h3></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="honors" class="panel">
+        <h2><i class="fa-solid fa-medal"></i> Honors & Achievements</h2>
+        <ul class="awards-list">
+            <li>1st Position - Cricket (Oorja)</li>
+            <li>1st Position - Tug of War (Oorja)</li>
+            <li>3rd Position - Regard Before You Discard</li>
+            <li>Participation in the International Conference Business Management Technology</li>
+            <li>Participation in the Open Mic Event</li>
+            <li>Participant in the Financial Innovation Event</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="panel panel-contact">
+        <h2><i class="fa-solid fa-envelope"></i> Let's Connect</h2>
+        <p>
+            I am actively pursuing my first corporate role where I can contribute my business acumen and retail experience. I am eager to learn and ready to add value to your team. Feel free to reach out!
+        </p>
+        <div class="contact-links">
+            <a href="mailto:sharmasmriti283@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/smriti-sharma-bb709030b" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <i class="fa-regular fa-copyright"></i> <span id="year"></span> Smriti Sharma | Built with ambition and precision.
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        const panels = document.querySelectorAll('.panel');
+        const reveal = () => {
+            const trigger = window.innerHeight * 0.85;
+            panels.forEach(p => {
+                const top = p.getBoundingClientRect().top;
+                if (top < trigger) p.classList.add('visible');
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Sticky Navbar and Active Link Highlighting
+        const navbar = document.getElementById('navbar');
+        const links = navbar.querySelectorAll('a');
+        const sections = [...links].map(a => {
+            const href = a.getAttribute('href');
+            return href.startsWith('#') ? document.querySelector(href) : null;
+        }).filter(Boolean);
+
+        const onScroll = () => {
+            let currentSection = null;
+            for (let i = sections.length - 1; i >= 0; i--) {
+                if (sections[i] && sections[i].getBoundingClientRect().top - 150 <= 0) {
+                    currentSection = sections[i];
+                    break;
+                }
+            }
+            links.forEach(l => l.classList.remove('active'));
+            if (currentSection) {
+                const activeLink = navbar.querySelector(`a[href="#${currentSection.id}"]`);
+                if (activeLink) activeLink.classList.add('active');
+            }
+        };
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('load', onScroll);
+
+        // Update footer year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
